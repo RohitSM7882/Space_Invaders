@@ -1,0 +1,99 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "bg",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.5166666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "paths": {
+      "1": {
+        "props": {
+          "y": [
+            {
+              "frame": 0,
+              "value": -500
+            },
+            {
+              "frame": 0.5,
+              "value": -1500,
+              "curve": "constant"
+            },
+            {
+              "frame": 0.5166666666666667,
+              "value": 2550
+            },
+            {
+              "frame": 1,
+              "value": 1550
+            },
+            {
+              "frame": 1.5,
+              "value": 550
+            }
+          ]
+        }
+      },
+      "2": {
+        "props": {
+          "y": [
+            {
+              "frame": 0,
+              "value": 850
+            },
+            {
+              "frame": 0.5,
+              "value": -150
+            },
+            {
+              "frame": 1,
+              "value": -1150
+            },
+            {
+              "frame": 1.5,
+              "value": -2150,
+              "curve": "constant"
+            },
+            {
+              "frame": 1.5166666666666666,
+              "value": 1900
+            }
+          ]
+        }
+      },
+      "3": {
+        "props": {
+          "y": [
+            {
+              "frame": 0,
+              "value": 2200
+            },
+            {
+              "frame": 0.5,
+              "value": 1200
+            },
+            {
+              "frame": 1,
+              "value": 200
+            },
+            {
+              "frame": 1.5,
+              "value": -800
+            }
+          ]
+        }
+      },
+      "spacebg": {
+        "props": {
+          "y": []
+        }
+      }
+    },
+    "props": {
+      "y": []
+    }
+  },
+  "events": []
+}

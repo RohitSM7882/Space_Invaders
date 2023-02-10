@@ -1,0 +1,56 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "background",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1.5,
+  "sample": 40,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "paths": {
+      "bg": {
+        "props": {
+          "y": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.75,
+              "value": -1900,
+              "curve": "constant"
+            },
+            {
+              "frame": 0.775,
+              "value": 2300
+            },
+            {
+              "frame": 1.5,
+              "value": 400
+            }
+          ]
+        }
+      },
+      "bg copy": {
+        "props": {
+          "y": [
+            {
+              "frame": 0,
+              "value": 2300
+            },
+            {
+              "frame": 0.75,
+              "value": 400
+            },
+            {
+              "frame": 1.5,
+              "value": -1900
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

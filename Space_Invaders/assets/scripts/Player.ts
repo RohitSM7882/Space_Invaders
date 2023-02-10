@@ -71,7 +71,7 @@ export default class Player extends cc.Component {
     {
         var _newBullet = cc.instantiate(this.bulletPrefab);
         _newBullet.setParent(this.node.getChildByName('Bullets'));
-        _newBullet.setPosition(this.shooter.x + 2, this.shooter.y + 100);
+        _newBullet.setPosition(this.shooter.x, this.shooter.y + 110);
         var _bulletDestinationPos: number = this.canvas.height - _newBullet.position.y;
 
         cc.tween(_newBullet)

@@ -11,6 +11,8 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     targets: cc.Prefab[] = [];
 
+    targetList: cc.Node[] = [];
+
     onLoad()
     {
         var _colliderManager = cc.director.getPhysicsManager();
@@ -22,8 +24,12 @@ export default class NewClass extends cc.Component {
     {
         let _newTarget = cc.instantiate(this.targets[Math.floor(Math.random() * (this.targets.length - 0)) + 0]);
         _newTarget.parent = this.node;
-        let _position = cc.v2(Math.random() * (400 - (-400)) - 400, 100);
+        let _position = cc.v2(Math.random() * (400 - (-400)) - 400, this.canvas.height);
         _newTarget.setPosition(_position);
+        this.targetList.push(_newTarget);
     }
 
+    protected update(dt: number): void {
+        
+    }
 }

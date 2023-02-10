@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "a9f6eece-ae34-4cfc-9aff-d88ae1fe97e6",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1080,
+  "height": 2340,
+  "platformSettings": {},
+  "subMetas": {
+    "space-wallpaper-for-phone-s024": {
+      "ver": "1.0.4",
+      "uuid": "c351283b-a77d-4151-aaf4-501a9d6910e0",
+      "rawTextureUuid": "a9f6eece-ae34-4cfc-9aff-d88ae1fe97e6",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1080,
+      "height": 2340,
+      "rawWidth": 1080,
+      "rawHeight": 2340,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
