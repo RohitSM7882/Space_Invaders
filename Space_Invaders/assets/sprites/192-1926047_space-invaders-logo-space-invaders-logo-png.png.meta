@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "d00f893f-0cd5-4570-878a-c65130bc9696",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 580,
+  "height": 262,
+  "platformSettings": {},
+  "subMetas": {
+    "192-1926047_space-invaders-logo-space-invaders-logo-png": {
+      "ver": "1.0.4",
+      "uuid": "5a9319c1-a53d-4145-995c-ac5ba4a360a9",
+      "rawTextureUuid": "d00f893f-0cd5-4570-878a-c65130bc9696",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0.5,
+      "trimX": 1,
+      "trimY": 1,
+      "width": 577,
+      "height": 259,
+      "rawWidth": 580,
+      "rawHeight": 262,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -3,7 +3,7 @@ import Canvas from "./Main";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class Targets extends cc.Component {
 
     @property(cc.Node)
     canvas: cc.Node = null;
@@ -17,10 +17,14 @@ export default class NewClass extends cc.Component {
     {
         var _colliderManager = cc.director.getPhysicsManager();
         _colliderManager.enabled = true;
-        this.schedule(this.createTargets, 1);
     }
 
     createTargets()
+    {
+        this.schedule(this.spawnTargets, 1);
+    }
+
+    spawnTargets()
     {
         let _newTarget = cc.instantiate(this.targets[Math.floor(Math.random() * (this.targets.length - 0)) + 0]);
         _newTarget.parent = this.node;
