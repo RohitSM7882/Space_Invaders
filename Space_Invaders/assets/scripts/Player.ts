@@ -16,7 +16,14 @@ export default class Player extends cc.Component {
 
     onLoad()
     {
+        // this.shooterInteractionState(false);
+        var _colliderManager = cc.director.getPhysicsManager();
+        _colliderManager.enabled = true;
+    }
 
+    onBeginContact(contact, selfCollider, otherCollider) 
+    {
+        cc.log(contact, selfCollider.name, otherCollider.name);
     }
 
     shooterInteractionState(_enable: boolean)
@@ -46,7 +53,7 @@ export default class Player extends cc.Component {
         var _eventPos = event.getLocation();
         var _localPos = this.node.convertToNodeSpaceAR(cc.v2(_eventPos.x, _eventPos.y));
 
-        if((Math.abs(this.shooter.x) + 150) < (this.canvas.width / 2))
+        if((Math.abs(this.shooter.x) + 100) < (this.canvas.width / 2))
             this.moveShooter(_localPos.x);
     }
 
