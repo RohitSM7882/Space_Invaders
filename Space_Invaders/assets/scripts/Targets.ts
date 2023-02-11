@@ -33,5 +33,4 @@ export default class Targets extends cc.Component {
         _newTarget.setPosition(_position);
     }
 
-    
 }

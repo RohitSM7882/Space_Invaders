@@ -124,6 +124,8 @@ export default class Player extends cc.Component {
             //     })
             //     .start();
         }
+        else
+            this.canvas.emit("onGameOver");
     }
 
 }

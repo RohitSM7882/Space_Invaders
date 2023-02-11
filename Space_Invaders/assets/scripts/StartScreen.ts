@@ -9,12 +9,7 @@ export default class StartScreen extends cc.Component {
     canvas: cc.Node = null;
 
     @property(cc.Button)
-    playButton: cc.Button = null;
-
-    onLoad()
-    {
-        // this.enablePlayButton(false);
-    }
+    private playButton: cc.Button = null;
 
     enablePlayButton(_enable: boolean)
     {
