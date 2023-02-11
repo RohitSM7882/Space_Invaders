@@ -19,6 +19,11 @@ export default class Player extends cc.Component {
         // this.shooterInteractionState(false);
         var _colliderManager = cc.director.getPhysicsManager();
         _colliderManager.enabled = true;
+
+        var _cm = cc.director.getCollisionManager();
+        _cm.enabled = true;
+        _cm.enabledDebugDraw = true;
+        _cm.enabledDrawBoundingBox = true;
     }
 
     onBeginContact(contact, selfCollider, otherCollider) 
@@ -84,6 +89,10 @@ export default class Player extends cc.Component {
 
     moveShooter(_xPos: number){
         this.shooter.x = _xPos;
+    }
+
+    onCollisionEnter(other, self){
+        cc.log(other, self);
     }
 
 }

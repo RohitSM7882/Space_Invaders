@@ -17,6 +17,9 @@ export default class Targets extends cc.Component {
     {
         var _colliderManager = cc.director.getPhysicsManager();
         _colliderManager.enabled = true;
+
+        var _cm = cc.director.getCollisionManager();
+        _cm.enabled = true;
     }
 
     createTargets()
@@ -31,6 +34,24 @@ export default class Targets extends cc.Component {
         let _position = cc.v2(Math.random() * (400 - (-400)) - 400, this.canvas.height);
         _newTarget.setPosition(_position);
         this.targetList.push(_newTarget);
+
+        // this.scheduleOnce(()=>{
+        //     _newTarget.getComponent(cc.RigidBody).active = false;
+        //     let _duration = _newTarget.getComponent(cc.Animation).play('explosion-01').duration;
+
+        //     this.scheduleOnce(()=>{
+        //         _newTarget.destroy();
+        //     }, _duration);
+        // }, 3);
+    }
+
+    onBeginContact(contact, selfCollider, otherCollider) 
+    {
+        cc.log(contact, selfCollider.name, otherCollider.name);
+    }
+
+    onCollisionEnter(other, self){
+        cc.log(other, self);
     }
 
     protected update(dt: number): void {

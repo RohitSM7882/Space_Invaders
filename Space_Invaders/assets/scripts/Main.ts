@@ -18,10 +18,9 @@ export default class Canvas extends cc.Component {
 
     onLoad()
     {
+        this.player.shooterInteractionState(false);
+        // this.targets.createTargets();
         this.startScreen.enablePlayButton(true);
-        
-        // this.player.shooterInteractionState(true);
-
         this.node.on("OnPlayButtonClicked", this.OnPlayButtonClicked.bind(this));
     }
 
