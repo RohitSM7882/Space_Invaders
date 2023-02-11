@@ -31,7 +31,7 @@ export default class Targets extends cc.Component {
     {
         let _newTarget = cc.instantiate(this.targets[Math.floor(Math.random() * (this.targets.length - 0)) + 0]);
         _newTarget.parent = this.node;
-        let _position = cc.v2(Math.random() * (400 - (-400)) - 400, this.canvas.height);
+        let _position = cc.v2(Math.random() * (400 - (-400)) - 400, (this.canvas.height / 2) + 400);
         _newTarget.setPosition(_position);
         this.targetList.push(_newTarget);
 

@@ -22,11 +22,8 @@ export default class Player extends cc.Component {
 
         var _cm = cc.director.getCollisionManager();
         _cm.enabled = true;
-    }
 
-    onBeginContact(contact, selfCollider, otherCollider) 
-    {
-        cc.log(contact, selfCollider.name, otherCollider.name);
+        this.node.on("onShooterDestroy", this.onShooterDestroy.bind(this));
     }
 
     shooterInteractionState(_enable: boolean)
@@ -56,8 +53,11 @@ export default class Player extends cc.Component {
         var _eventPos = event.getLocation();
         var _localPos = this.node.convertToNodeSpaceAR(cc.v2(_eventPos.x, _eventPos.y));
 
-        if((Math.abs(this.shooter.x) + 100) < (this.canvas.width / 2))
+        if((Math.abs(this.shooter.x) + 100) <= (this.canvas.width / 2))
+        {
+            // if()
             this.moveShooter(_localPos.x);
+        }
     }
 
     onTouchEnd()
@@ -75,7 +75,7 @@ export default class Player extends cc.Component {
         var _newBullet = cc.instantiate(this.bulletPrefab);
         _newBullet.setParent(this.node.getChildByName('Bullets'));
         _newBullet.setPosition(this.shooter.x, this.shooter.y + 110);
-        var _bulletDestinationPos: number = this.canvas.height - _newBullet.position.y;
+        var _bulletDestinationPos: number = (this.canvas.height / 2) + 300;
 
         cc.tween(_newBullet)
             .to(1, {y: _bulletDestinationPos})
@@ -85,12 +85,19 @@ export default class Player extends cc.Component {
             .start();
     }
 
-    moveShooter(_xPos: number){
+    moveShooter(_xPos: number)
+    {
         this.shooter.x = _xPos;
     }
 
-    onCollisionEnter(other, self){
-        cc.log(other, self);
+    onShooterDestroy(_duration: number)
+    {
+        this.shooterInteractionState(false);
+        this.unschedule(this.shootBullets);
+
+        this.scheduleOnce(()=>{
+            this.shooter.active = false;
+        }, _duration);
     }
 
 }
