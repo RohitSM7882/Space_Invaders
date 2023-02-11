@@ -1,4 +1,5 @@
 import Canvas from "./Main";
+import TopInfo from "./TopInfo";
 
 const {ccclass, property} = cc._decorator;
 
@@ -14,9 +15,11 @@ export default class Player extends cc.Component {
     @property(cc.Prefab)
     private bulletPrefab: cc.Prefab = null;
 
+    @property(cc.SpriteFrame)
+    private shooterImage: cc.SpriteFrame = null;
+
     onLoad()
     {
-        // this.shooterInteractionState(false);
         var _colliderManager = cc.director.getPhysicsManager();
         _colliderManager.enabled = true;
 
@@ -53,11 +56,8 @@ export default class Player extends cc.Component {
         var _eventPos = event.getLocation();
         var _localPos = this.node.convertToNodeSpaceAR(cc.v2(_eventPos.x, _eventPos.y));
 
-        if((Math.abs(this.shooter.x) + 100) <= (this.canvas.width / 2))
-        {
-            // if()
+        if((Math.abs(_localPos.x) + 120) < this.canvas.width / 2)
             this.moveShooter(_localPos.x);
-        }
     }
 
     onTouchEnd()
@@ -97,7 +97,33 @@ export default class Player extends cc.Component {
 
         this.scheduleOnce(()=>{
             this.shooter.active = false;
+            this.resetToTryAgain();
         }, _duration);
+    }
+
+    resetToTryAgain()
+    {
+        if(cc.find("Canvas/TopInfo").getComponent(TopInfo).getLifeCount() > 0)
+        {
+            this.shooter.active = true;
+            this.shooter.getComponent(cc.Sprite).spriteFrame = this.shooterImage;
+            this.shooter.scale = 0.15;
+            this.shooter.opacity = 255;
+            this.shooter.setPosition(0, -600);
+            this.shooterInteractionState(true);
+
+            // cc.tween(this.shooter)
+            //     .repeat(5,
+            //         cc.tween()
+            //             .call(()=>{ this.shooter.active = false; })
+            //             .delay(0.2)
+            //             .call(()=>{ this.shooter.active = true; })
+            //     )
+            //     .call(()=>{
+            //         this.shooterInteractionState(true);
+            //     })
+            //     .start();
+        }
     }
 
 }

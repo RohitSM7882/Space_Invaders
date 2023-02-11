@@ -9,6 +9,7 @@ export default class NewClass extends cc.Component {
             _self.getComponent(cc.RigidBody).active = false;
             _self.getComponent(cc.Animation).play('explosion-01');
             _self.destroy();
+            cc.find("Canvas/TopInfo").emit("onTargetDestroy");
         }
         else if(_other.name == "Shooter<PolygonCollider>"){
             _self.getComponent(cc.RigidBody).active = false;
@@ -17,6 +18,7 @@ export default class NewClass extends cc.Component {
 
             let _duration = _other.getComponent(cc.Animation).play('explosion-01').duration;
             cc.find("Canvas/Player").emit("onShooterDestroy", _duration);
+            cc.find("Canvas/TopInfo").emit("onShooterDestroy");
         }
     }
 

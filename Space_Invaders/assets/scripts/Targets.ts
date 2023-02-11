@@ -9,9 +9,7 @@ export default class Targets extends cc.Component {
     canvas: cc.Node = null;
 
     @property(cc.Prefab)
-    targets: cc.Prefab[] = [];
-
-    targetList: cc.Node[] = [];
+    private targets: cc.Prefab[] = [];
 
     onLoad()
     {
@@ -33,28 +31,7 @@ export default class Targets extends cc.Component {
         _newTarget.parent = this.node;
         let _position = cc.v2(Math.random() * (400 - (-400)) - 400, (this.canvas.height / 2) + 400);
         _newTarget.setPosition(_position);
-        this.targetList.push(_newTarget);
-
-        // this.scheduleOnce(()=>{
-        //     _newTarget.getComponent(cc.RigidBody).active = false;
-        //     let _duration = _newTarget.getComponent(cc.Animation).play('explosion-01').duration;
-
-        //     this.scheduleOnce(()=>{
-        //         _newTarget.destroy();
-        //     }, _duration);
-        // }, 3);
     }
 
-    onBeginContact(contact, selfCollider, otherCollider) 
-    {
-        cc.log(contact, selfCollider.name, otherCollider.name);
-    }
-
-    onCollisionEnter(other, self){
-        cc.log(other, self);
-    }
-
-    protected update(dt: number): void {
-        
-    }
+    
 }
