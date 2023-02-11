@@ -22,8 +22,6 @@ export default class Player extends cc.Component {
 
         var _cm = cc.director.getCollisionManager();
         _cm.enabled = true;
-        _cm.enabledDebugDraw = true;
-        _cm.enabledDrawBoundingBox = true;
     }
 
     onBeginContact(contact, selfCollider, otherCollider) 
