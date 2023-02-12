@@ -33,4 +33,11 @@ export default class Targets extends cc.Component {
         _newTarget.setPosition(_position);
     }
 
+    stopTargets()
+    {
+        this.unschedule(this.spawnTargets);
+        this.node.children.forEach(_ele=>{
+            _ele.getComponent(cc.RigidBody).active = false;
+        });
+    }
 }

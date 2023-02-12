@@ -17,7 +17,7 @@ export default class EndScreen extends cc.Component {
         this.node.runAction(cc.fadeIn(0.2));
 
         cc.tween(this.node.getChildByName("Title"))
-            .to(0.3, {y: 150, opacity: 255, scale: 1}, {easing: "quadInOut"})
+            .to(0.3, {y: 150, opacity: 255, scale: 1})
             .start();
 
         cc.tween(this.installButton.node)

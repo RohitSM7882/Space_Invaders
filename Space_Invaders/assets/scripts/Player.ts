@@ -15,8 +15,8 @@ export default class Player extends cc.Component {
     @property(cc.Prefab)
     private bulletPrefab: cc.Prefab = null;
 
-    @property(cc.SpriteFrame)
-    private shooterImage: cc.SpriteFrame = null;
+    @property(cc.Prefab)
+    private shooterPrefab: cc.Prefab = null;
 
     onLoad()
     {
@@ -43,6 +43,7 @@ export default class Player extends cc.Component {
             this.shooter.off(cc.Node.EventType.TOUCH_MOVE);
             this.shooter.off(cc.Node.EventType.TOUCH_END);
             this.shooter.off(cc.Node.EventType.TOUCH_CANCEL);
+            this.unschedule(this.shootBullets);
         }
     }
     
@@ -96,7 +97,6 @@ export default class Player extends cc.Component {
         this.unschedule(this.shootBullets);
 
         this.scheduleOnce(()=>{
-            this.shooter.active = false;
             this.resetToTryAgain();
         }, _duration);
     }
@@ -105,24 +105,10 @@ export default class Player extends cc.Component {
     {
         if(cc.find("Canvas/TopInfo").getComponent(TopInfo).getLifeCount() > 0)
         {
-            this.shooter.active = true;
-            this.shooter.getComponent(cc.Sprite).spriteFrame = this.shooterImage;
-            this.shooter.scale = 0.15;
-            this.shooter.opacity = 255;
+            this.shooter = cc.instantiate(this.shooterPrefab);
+            this.shooter.setParent(this.node);
             this.shooter.setPosition(0, -600);
             this.shooterInteractionState(true);
-
-            // cc.tween(this.shooter)
-            //     .repeat(5,
-            //         cc.tween()
-            //             .call(()=>{ this.shooter.active = false; })
-            //             .delay(0.2)
-            //             .call(()=>{ this.shooter.active = true; })
-            //     )
-            //     .call(()=>{
-            //         this.shooterInteractionState(true);
-            //     })
-            //     .start();
         }
         else
             this.canvas.emit("onGameOver");

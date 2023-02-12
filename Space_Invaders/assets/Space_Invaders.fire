@@ -870,8 +870,8 @@
     "bulletPrefab": {
       "__uuid__": "e30023eb-971d-4bc9-8ea7-f17036cf15c0"
     },
-    "shooterImage": {
-      "__uuid__": "99f43129-6bc6-4641-ae64-bce2967e48db"
+    "shooterPrefab": {
+      "__uuid__": "17218150-04c8-4f75-ba0d-a59e203adb98"
     },
     "_id": "8aGX8cXMFPf5prDOT8vr7U"
   },
@@ -2985,6 +2985,9 @@
     },
     "endScreen": {
       "__id__": 60
+    },
+    "aud_Bgm": {
+      "__uuid__": "f3745ffc-7a57-4be8-aa85-ea0ca2a0f5be"
     },
     "_id": "38i++wRHdFvp9BwQYxkj99"
   },

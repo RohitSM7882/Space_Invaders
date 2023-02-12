@@ -17,6 +17,7 @@ export default class NewClass extends cc.Component {
             _self.destroy();
 
             let _duration = _other.getComponent(cc.Animation).play('explosion-01').duration;
+            _other.destroy();
             cc.find("Canvas/Player").emit("onShooterDestroy", _duration);
             cc.find("Canvas/TopInfo").emit("onShooterDestroy");
         }
