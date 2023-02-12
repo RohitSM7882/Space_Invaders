@@ -11,6 +11,9 @@ export default class StartScreen extends cc.Component {
     @property(cc.Button)
     private playButton: cc.Button = null;
 
+    @property({type: cc.AudioClip})
+    aud_Btn: cc.AudioClip = null;
+
     enablePlayButton(_enable: boolean)
     {
         this.playButton.interactable = _enable;
@@ -28,6 +31,7 @@ export default class StartScreen extends cc.Component {
     onClickPlayButton(){
         this.canvas.emit('OnPlayButtonClicked');
         this.enablePlayButton(false);
+        cc.audioEngine.play(this.aud_Btn, false, 0.05);
 
         cc.tween(this.node.getChildByName("Title"))
             .to(0.3, {y: 1200, opacity: 0, scale: 3})

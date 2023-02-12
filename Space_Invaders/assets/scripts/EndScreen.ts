@@ -11,6 +11,9 @@ export default class EndScreen extends cc.Component {
     @property(cc.Button)
     private installButton: cc.Button = null;
 
+    @property({type: cc.AudioClip})
+    aud_Btn: cc.AudioClip = null;
+
     enableEndScreen()
     {
         this.node.active = true;
@@ -42,5 +45,13 @@ export default class EndScreen extends cc.Component {
                 .start();
     }
 
+    onClickInstallBtn()
+    {
+        cc.audioEngine.play(this.aud_Btn, false, 0.05);
+
+        cc.tween(this.node.getChildByName('cover_letter'))
+            .to(0.5, {scale: 0.4}, {easing: "expoOut"})
+            .start();
+    }
 
 }

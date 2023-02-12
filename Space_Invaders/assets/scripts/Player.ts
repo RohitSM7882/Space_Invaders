@@ -18,6 +18,9 @@ export default class Player extends cc.Component {
     @property(cc.Prefab)
     private shooterPrefab: cc.Prefab = null;
 
+    @property({type: cc.AudioClip})
+    aud_Bullet: cc.AudioClip = null;
+
     onLoad()
     {
         var _colliderManager = cc.director.getPhysicsManager();
@@ -50,6 +53,7 @@ export default class Player extends cc.Component {
     onTouchStart()
     {
         this.schedule(this.shootBullets, 0.05);
+        this.canvas.emit('onInteractionStart');
     }
 
     onTouchMove(event)
@@ -77,6 +81,7 @@ export default class Player extends cc.Component {
         _newBullet.setParent(this.node.getChildByName('Bullets'));
         _newBullet.setPosition(this.shooter.x, this.shooter.y + 110);
         var _bulletDestinationPos: number = (this.canvas.height / 2) + 300;
+        cc.audioEngine.play(this.aud_Bullet, false, 0.5);
 
         cc.tween(_newBullet)
             .to(1, {y: _bulletDestinationPos})
